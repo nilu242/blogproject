@@ -1,0 +1,33 @@
+{% extends 'blogapp/base.html' %}
+{% load crispy_forms_tags %}
+{%block content%}
+<br><br><br>
+<div class="contner" id="div1">
+<h1>{{post.title}}</h1>
+<h3>author :  {{post.author}}</h3>
+<h4>{{post.publish}}</h4>
+<h5>{{post.body}}</h5>
+<h4>comments</h4>
+
+{% for c in comments %}
+    <div class="comment">
+        <a>name: {{ c.name}}<a><br>
+        <!--<a>e-mail:{{ c.email }}</a><br>-->
+        <p>comment :{{ c.comment| linebreaks }}</p><br><br>
+    </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+
+<h3>please add comment</h3>
+{% if comment %}
+<h2>our commet is added successfully</h2>
+{% else %}
+<form  method="post">
+  {{form|crispy}}
+  {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="submit comments">
+</form>
+</div>
+{% endif %}
+{% endblock %}

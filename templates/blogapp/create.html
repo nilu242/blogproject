@@ -1,0 +1,12 @@
+{% extends 'blogapp/base.html'%}
+{%block content%}
+<h1>add your blog</h1>
+    <form  method="post">
+        <table>
+          {{form}}
+          {% csrf_token %}
+        </table>
+        <br><br>
+      <input type="submit" class="btn btn-success btn-lg" value="insert record">
+    </form>
+{% endblock%}

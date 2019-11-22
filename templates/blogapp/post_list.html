@@ -1,0 +1,22 @@
+{% extends "blogapp/base.html" %}
+{% block title_block %}ABC Blog Home{%endblock%}
+
+{%block content%}
+<br><br><br>
+<h1 align='center'>blog</h1>
+<br><br><br>
+<div class="view overlay zoom" id="div1">
+  <table>
+    <tr>
+  {% for post in post_list %}
+  <div class="contner" align="center">
+
+    <h2><a id="a2" href="/detail/{{post.id}}" >{{post.title}}</a></h2>
+  </div>
+    {{post.body| truncatewords:30|linebreaks}}<br><br><br>
+  {% endfor %}
+  </tr>
+  </table>
+</div>
+{% include 'blogapp/pagination.html' with page=post_list %}
+{% endblock %}

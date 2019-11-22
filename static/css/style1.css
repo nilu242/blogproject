@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+body,html{
+  background-color: #26403a;
+  font-size: 20px;
+
+}
+
+.content{
+  background-color:  #26403a;
+  font-family: 'Courgette'
+}
+
+h1{
+  color: green;
+  text-align: center;
+}
+#a1{
+  color: blue;
+}
+#a2{
+  color: blue;
+}
+#nav1{
+  background-color:  #ffccff;
+  font-family: 'Sofia';
+  border-radius: 50px;
+}
+#a3{
+  color: red;
+  text-align: center;
+  display:block;
+}
+#div1{
+  color: #ffccff;
+}

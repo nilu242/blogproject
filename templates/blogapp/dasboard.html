@@ -1,0 +1,18 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+<br><br><br>
+<div class=" container" align="center">
+<a  href="/create" ><button  type="Submit" class="btn btn-success btn-lg" name="button">Add your Post</button></a><br><br><br>
+</div>
+
+  {% for post in posts %}
+  <div class="">
+
+    <h1><a href="/detail/{{post.id}}" >{{post.title}}</a></h1>
+    {{post.body| truncatewords:30|linebreaks}}
+    <a id="a3" href="{{post.id}}/update" ><button type="submit" class="btn btn-success" name="button">Update</button></a>
+    <br>
+    <a id="a3" href="{{post.id}}/delete" ><button type="submmit" class="btn btn-danger" name="button">Delete</button></a>
+  </div>
+  {% endfor %}
+{% endblock %}

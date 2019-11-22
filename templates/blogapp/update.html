@@ -1,0 +1,11 @@
+{% extends 'blogapp/base.html'%}
+{%block content%}
+<h1>blog information update</h1>
+    <form  method="post">
+      {% csrf_token %}
+        blog title: <input type="text" name="title" value="{{update.title}}"><br>
+        blog  body: <textarea name="body" rows="8" cols="80">{{update.body}}</textarea><br>
+        bog status: <input type="text" name="status" value="{{update.status}}">
+        <input type="submit" value="update record">
+    </form>
+{%endblock%}
