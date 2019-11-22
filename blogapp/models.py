@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.db.models.signals import pre_save
+from django.utils.text import slugify
+
 # Create your models here.
 class CustomManager(models.Manager):
     def get_queryset(self):
@@ -29,3 +32,12 @@ class Comment(models.Model):
     name=models.CharField(max_length=30)
     email=models.EmailField()
     comment=models.TextField()
+
+def pre_save_post_receiver(sender, instance, *args, **kwargs):
+    slug = slugify(instance.title)
+    exists = Post.objects.filter(slug=slug).exists()
+    if exists:
+        slug = "%s-%s" %(slug, instance.id)
+    instance.slug = slug
+
+pre_save.connect(pre_save_post_receiver, sender=Post)
