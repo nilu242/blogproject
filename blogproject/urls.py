@@ -20,13 +20,8 @@ from blogapp import views as v1
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',v1.post_list_view),
-    path('detail/<int:pk>',v1.BlogDetailView.as_view()),
     path('signup/',v1.signup_view),
     path('accounts/',include('django.contrib.auth.urls')),
     path('logout/',v1.logout_view),
-    path('dashboard/',v1.dashboard_view),
-    path('dashboard/<int:pk>/update',v1.update_view),
-    path('dashboard/<int:pk>/delete',v1.delete_view),
-    path('create/',v1.createview),
+    path('', include("blogapp.urls"))
 ]
